@@ -2,9 +2,9 @@
 
 Sen Li, [Ruochen Wang](https://ruocwang.github.io/), [Cho-Jui Hsieh](https://web.cs.ucla.edu/~chohsieh/), [Minhao Cheng](https://cmhcbb.github.io/), [Tianyi Zhou](https://tianyizhou.github.io/)
 
-HKUST, UCLA, PSU, UMD
+**ARC**-**A**IGC **R**esearch **C**ollaboration
 
-*ARC-AIGC Research Collaboration*
+HKUST, UCLA, PSU, UMD
 
 [Paper](), [Project website](https://measure-infinity.github.io/mulan), [Code](https://github.com/measure-infinity/mulan-code)
 
