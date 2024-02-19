@@ -4,6 +4,8 @@ Sen Li, [Ruochen Wang](https://ruocwang.github.io/), [Cho-Jui Hsieh](https://web
 
 HKUST, UCLA, PSU, UMD
 
+*ARC-AIGC Research Collaboration*
+
 [Paper](), [Project website](https://measure-infinity.github.io/mulan), [Code](https://github.com/measure-infinity/mulan-code)
 
 ![Main Framework](./assets/framework.png)
