@@ -1,11 +1,11 @@
 import argparse, os, sys, glob
 import cv2
-# os.environ['CUDA_VISIBLE_DEVICES'] = '4'
 import torch
 import numpy as np
 from omegaconf import OmegaConf
 from PIL import Image
 from tqdm import tqdm, trange
+
 # from imwatermark import WatermarkEncoder
 from itertools import islice
 from einops import rearrange
@@ -14,8 +14,6 @@ import time
 from pytorch_lightning import seed_everything
 from torch import autocast
 from contextlib import contextmanager, nullcontext
-
-# torch.hub.set_dir('../cache_torch')
 
 sys.path.append('../')
 from ldm.util import instantiate_from_config
@@ -900,10 +898,9 @@ if __name__ == "__main__":
                     repeat_gen += 1
             
 
+
             if j == (len(decompose_output) - 1):
                 shutil.copyfile(f"{args.outdir}/samples/{obj_name.lower()}.png", f"{args.outdir}/samples/final_{obj_name.lower()}.png")
-
-
 
 
 
