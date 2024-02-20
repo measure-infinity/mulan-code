@@ -623,18 +623,7 @@ if __name__ == "__main__":
                 "max_new_tokens": 512,
             })()
 
-            
-            img = Image.open(image_file)
-            while True:
-                try:
-                    response = gemini.generate_content([prompt, img], stream=True)
-                    response.resolve()
-                    test = response.text
-                    break
-                except:
-                    time.sleep(30)
-                    continue
-
+            test = eval_model(args_llava)
             if 'yes' in test.lower():
                 print(repeat_gen)
                 break
@@ -760,17 +749,7 @@ if __name__ == "__main__":
                             "max_new_tokens": 512,
                         })()
 
-                        
-                        img = Image.open(image_file)
-                        while True:
-                            try:
-                                response = gemini.generate_content([prompt, img], stream=True)
-                                response.resolve()
-                                test = response.text
-                                break
-                            except:
-                                time.sleep(30)
-                                continue
+                        test = eval_model(args_llava)
                         if 'yes' in test.lower():
                             print(repeat_gen)
                             break
@@ -849,18 +828,7 @@ if __name__ == "__main__":
                                 "max_new_tokens": 512,
                             })()
 
-                            
-                            img = Image.open(image_file)
-                            while True:
-                                try:
-                                    response = gemini.generate_content([prompt, img], stream=True)
-                                    response.resolve()
-                                    test = response.text
-                                    break
-                                except:
-                                    time.sleep(30)
-                                    continue
-
+                            test = eval_model(args_llava)
                             if 'yes' in test.lower():
                                 print(repeat_gen)
                                 break
@@ -925,17 +893,7 @@ if __name__ == "__main__":
                         "max_new_tokens": 512,
                     })()
 
-                    
-                    img = Image.open(image_file)
-                    while True:
-                        try:
-                            response = gemini.generate_content([prompt, img], stream=True)
-                            response.resolve()
-                            test = response.text
-                            break
-                        except:
-                            time.sleep(30)
-                            continue
+                    test = eval_model(args_llava)
                     if 'yes' in test.lower():
                         print(repeat_gen)
                         break
@@ -944,6 +902,8 @@ if __name__ == "__main__":
 
             if j == (len(decompose_output) - 1):
                 shutil.copyfile(f"{args.outdir}/samples/{obj_name.lower()}.png", f"{args.outdir}/samples/final_{obj_name.lower()}.png")
+
+
 
 
 
