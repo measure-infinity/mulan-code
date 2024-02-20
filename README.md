@@ -1,5 +1,15 @@
 # MuLan: Multimodal-LLM Agent for Progressive Multi-Object Diffusion
 
+![Stable-Diffusion](https://img.shields.io/badge/Model-SD-blue)
+![SDXL](https://img.shields.io/badge/Model-SDXL-blue)
+![GPT4](https://img.shields.io/badge/Model-GPT4-blue)
+![GPT4V](https://img.shields.io/badge/Model-GPT4V-blue)
+![Gemini-Pro](https://img.shields.io/badge/Model-Gemini--Pro-blue)
+![LLaVA](https://img.shields.io/badge/Model-LLaVA-blue)
+![Generation](https://img.shields.io/badge/Task-Controllable%20Generation-blue)
+
+
+
 Sen Li, [Ruochen Wang](https://ruocwang.github.io/), [Cho-Jui Hsieh](https://web.cs.ucla.edu/~chohsieh/), [Minhao Cheng](https://cmhcbb.github.io/), [Tianyi Zhou](https://tianyizhou.github.io/)
 
 **ARC**-**A**IGC **R**esearch **C**ollaboration
