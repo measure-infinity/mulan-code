@@ -6,7 +6,7 @@
 ![GPT4V](https://img.shields.io/badge/Model-GPT4V-blue)
 ![Gemini-Pro](https://img.shields.io/badge/Model-Gemini--Pro-blue)
 ![LLaVA](https://img.shields.io/badge/Model-LLaVA-blue)
-![Generation](https://img.shields.io/badge/Task-Controllable%20Generation-green)
+![Generation](https://img.shields.io/badge/Task-Controllable%20Generation-red)
 
 
 
