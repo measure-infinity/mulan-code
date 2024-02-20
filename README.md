@@ -2,7 +2,7 @@
 
 Sen Li, [Ruochen Wang](https://ruocwang.github.io/), [Cho-Jui Hsieh](https://web.cs.ucla.edu/~chohsieh/), [Minhao Cheng](https://cmhcbb.github.io/), [Tianyi Zhou](https://tianyizhou.github.io/)
 
-**ARC**-**A**IGC **R**esearch **C**ollaboration
+### **ARC**-**A**IGC **R**esearch **C**ollaboration
 
 HKUST, UCLA, PSU, UMD
 
