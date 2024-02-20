@@ -34,14 +34,6 @@ import inflect
 
 
 from diffusers import StableDiffusionXLPipeline
-# from diffusers.pipelines.stable_diffusion.safety_checker import StableDiffusionSafetyChecker
-# from transformers import AutoFeatureExtractor
-
-
-# load safety model
-# safety_model_id = "CompVis/stable-diffusion-safety-checker"
-# safety_feature_extractor = AutoFeatureExtractor.from_pretrained(safety_model_id)
-# safety_checker = StableDiffusionSafetyChecker.from_pretrained(safety_model_id)
 
 
 def chunk(it, size):
@@ -212,15 +204,7 @@ def generate(opt, model, curr_prompt='a black headphone is on the left of a gree
                         # os._exit(0)
                         shape = [opt.C, opt.H // opt.f, opt.W // opt.f]
                         sampler.make_schedule(50, verbose=False)
-                        # samples_ddim, _, all_samples_, all_x0 = sampler.sample(S=10,
-                        #                                  conditioning=c[0].unsqueeze(0),
-                        #                                  batch_size=opt.n_samples,
-                        #                                  shape=shape,
-                        #                                  verbose=False,
-                        #                                  unconditional_guidance_scale=opt.scale,
-                        #                                  unconditional_conditioning=uc,
-                        #                                  eta=opt.ddim_eta,
-                        #                                  x_T=start_code)
+
                         
                         alphas_prod_next = torch.from_numpy(np.append((sampler.model.alphas_cumprod.cpu().numpy()[sampler.ddim_timesteps])[1:], 0.0))
                         print(alphas_prod_next.shape)
@@ -905,4 +889,3 @@ if __name__ == "__main__":
 
 
         
-
