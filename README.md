@@ -16,7 +16,7 @@ Sen Li, [Ruochen Wang](https://ruocwang.github.io/), [Cho-Jui Hsieh](https://web
 
 HKUST, UCLA, PSU, UMD
 
-[Paper](), [Project website](https://measure-infinity.github.io/mulan), [Code](https://github.com/measure-infinity/mulan-code)
+[Paper](https://arxiv.org/pdf/2402.12741.pdf), [Project website](https://measure-infinity.github.io/mulan), [Code](https://github.com/measure-infinity/mulan-code)
 
 ![Main Framework](./assets/framework.png)
 ![Main Visualization](./assets/illustration.png)
