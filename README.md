@@ -51,7 +51,6 @@ pip install -e .
 
 ### Demo
 
-
 Please modify you own GPT-4 API key in `query.py`, which is utilized for planning during the generation process. We recommend GPT-4 for the planning which is the default model in the code.
 
 To generate an image with a complex prompt, run
@@ -69,7 +68,7 @@ The results will be saved in `./outputs` by default. You can easily adjust the h
 @misc{li2024mulan,
     title={MuLan: Multimodal-LLM Agent for Progressive Multi-Object Diffusion},
     author={Li, Sen and Wang, Ruochen and Hsieh, Cho-jui and Cheng, Minhao and Zhou, Tianyi},
-    publisher={arXiv:},
+    publisher={arXiv:2402.12741},
     year={2024},
 }
 ```
