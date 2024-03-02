@@ -300,184 +300,193 @@ def generate(opt, model, curr_prompt='a black headphone is on the left of a gree
     return curr_latents
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+# if __name__ == "__main__":
+#     parser = argparse.ArgumentParser()
 
-    parser.add_argument(
-        "--prompt",
-        type=str,
-        nargs="?",
-        default="a refrigerator on the left, a stove on the right, and a sink in the middle",
-        help="the prompt to render"
-    )
-    parser.add_argument(
-        "--scene",
-        type=str,
-        default="",
-        help="the scene to render"
-    )
-    parser.add_argument(
-        "--outdir",
-        type=str,
-        nargs="?",
-        help="dir to write results to",
-        default="../outputs"
-    )
-    parser.add_argument(
-        "--skip_grid",
-        action='store_true',
-        help="do not save a grid, only individual samples. Helpful when evaluating lots of samples",
-    )
-    parser.add_argument(
-        "--skip_save",
-        action='store_true',
-        help="do not save individual samples. For speed measurements.",
-    )
-    parser.add_argument(
-        "--ddim_steps",
-        type=int,
-        default=50,
-        help="number of ddim sampling steps",
-    )
-    parser.add_argument(
-        "--plms",
-        action='store_true',
-        help="use plms sampling",
-    )
-    parser.add_argument(
-        "--dpm_solver",
-        action='store_true',
-        help="use dpm_solver sampling",
-    )
-    parser.add_argument(
-        "--laion400m",
-        action='store_true',
-        help="uses the LAION400M model",
-    )
-    parser.add_argument(
-        "--fixed_code",
-        action='store_true',
-        help="if enabled, uses the same starting code across samples ",
-    )
-    parser.add_argument(
-        "--ddim_eta",
-        type=float,
-        default=0.0,
-        help="ddim eta (eta=0.0 corresponds to deterministic sampling",
-    )
-    parser.add_argument(
-        "--n_iter",
-        type=int,
-        default=1,
-        help="sample this often",
-    )
-    parser.add_argument(
-        "--H",
-        type=int,
-        default=512,
-        help="image height, in pixel space",
-    )
-    parser.add_argument(
-        "--W",
-        type=int,
-        default=512,
-        help="image width, in pixel space",
-    )
-    parser.add_argument(
-        "--C",
-        type=int,
-        default=4,
-        help="latent channels",
-    )
-    parser.add_argument(
-        "--f",
-        type=int,
-        default=8,
-        help="downsampling factor",
-    )
-    parser.add_argument(
-        "--n_samples",
-        type=int,
-        default=1,
-        help="how many samples to produce for each given prompt. A.k.a. batch size",
-    )
-    parser.add_argument(
-        "--n_rows",
-        type=int,
-        default=0,
-        help="rows in the grid (default: n_samples)",
-    )
-    parser.add_argument(
-        "--scale",
-        type=float,
-        default=7.5,
-        help="unconditional guidance scale: eps = eps(x, empty) + scale * (eps(x, cond) - eps(x, empty))",
-    )
-    parser.add_argument(
-        "--from-file",
-        type=str,
-        help="if specified, load prompts from this file",
-    )
-    parser.add_argument(
-        "--config",
-        type=str,
-        default="../configs/v1-inference.yaml",
-        help="path to config which constructs model",
-    )
-    parser.add_argument(
-        "--ckpt",
-        type=str,
-        default="../sd-models/sd-v1-4-full-ema.ckpt",
-        help="path to checkpoint of model",
-    )
-    parser.add_argument(
-        "--seed",
-        type=int,
-        default=42,
-        help="the seed (for reproducible sampling)",
-    )
-    parser.add_argument(
-        "--precision",
-        type=str,
-        help="evaluate at this precision",
-        choices=["full", "autocast"],
-        default="autocast"
-    )
-    parser.add_argument(
-        "--weight",
-        type=float,
-        default=110.,
-        help="loss weight for attention guidance",
-    )
-    parser.add_argument(
-        "--thresh",
-        type=int,
-        default=0.2,
-        help="loss threshold for attention guidance",
-    )
-    args = parser.parse_args()
-    print(args.prompt)
-    # args.outdir = f"../exps/{(args.prompt[:-1]).replace(',', '').replace(' ', '_') if args.prompt[-1] == '.' else (args.prompt).replace(',', '').replace(' ', '_')}"
-    # os.makedirs(args.outdir, exist_ok=True)
+#     parser.add_argument(
+#         "--prompt",
+#         type=str,
+#         nargs="?",
+#         default="a black headphone is on the left of a green phone",
+#         help="the prompt to render"
+#     )
+#     parser.add_argument(
+#         "--scene",
+#         type=str,
+#         default="",
+#         help="the scene to render"
+#     )
+#     parser.add_argument(
+#         "--outdir",
+#         type=str,
+#         nargs="?",
+#         help="dir to write results to",
+#         default="../outputs"
+#     )
+#     parser.add_argument(
+#         "--skip_grid",
+#         action='store_true',
+#         help="do not save a grid, only individual samples. Helpful when evaluating lots of samples",
+#     )
+#     parser.add_argument(
+#         "--skip_save",
+#         action='store_true',
+#         help="do not save individual samples. For speed measurements.",
+#     )
+#     parser.add_argument(
+#         "--ddim_steps",
+#         type=int,
+#         default=50,
+#         help="number of ddim sampling steps",
+#     )
+#     parser.add_argument(
+#         "--plms",
+#         action='store_true',
+#         help="use plms sampling",
+#     )
+#     parser.add_argument(
+#         "--dpm_solver",
+#         action='store_true',
+#         help="use dpm_solver sampling",
+#     )
+#     parser.add_argument(
+#         "--laion400m",
+#         action='store_true',
+#         help="uses the LAION400M model",
+#     )
+#     parser.add_argument(
+#         "--fixed_code",
+#         action='store_true',
+#         help="if enabled, uses the same starting code across samples ",
+#     )
+#     parser.add_argument(
+#         "--ddim_eta",
+#         type=float,
+#         default=0.0,
+#         help="ddim eta (eta=0.0 corresponds to deterministic sampling",
+#     )
+#     parser.add_argument(
+#         "--n_iter",
+#         type=int,
+#         default=1,
+#         help="sample this often",
+#     )
+#     parser.add_argument(
+#         "--H",
+#         type=int,
+#         default=512,
+#         help="image height, in pixel space",
+#     )
+#     parser.add_argument(
+#         "--W",
+#         type=int,
+#         default=512,
+#         help="image width, in pixel space",
+#     )
+#     parser.add_argument(
+#         "--C",
+#         type=int,
+#         default=4,
+#         help="latent channels",
+#     )
+#     parser.add_argument(
+#         "--f",
+#         type=int,
+#         default=8,
+#         help="downsampling factor",
+#     )
+#     parser.add_argument(
+#         "--n_samples",
+#         type=int,
+#         default=1,
+#         help="how many samples to produce for each given prompt. A.k.a. batch size",
+#     )
+#     parser.add_argument(
+#         "--n_rows",
+#         type=int,
+#         default=0,
+#         help="rows in the grid (default: n_samples)",
+#     )
+#     parser.add_argument(
+#         "--scale",
+#         type=float,
+#         default=7.5,
+#         help="unconditional guidance scale: eps = eps(x, empty) + scale * (eps(x, cond) - eps(x, empty))",
+#     )
+#     parser.add_argument(
+#         "--from-file",
+#         type=str,
+#         help="if specified, load prompts from this file",
+#     )
+#     parser.add_argument(
+#         "--config",
+#         type=str,
+#         default="../configs/v1-inference.yaml",
+#         help="path to config which constructs model",
+#     )
+#     parser.add_argument(
+#         "--ckpt",
+#         type=str,
+#         default="../sd-models/sd-v1-4-full-ema.ckpt",
+#         help="path to checkpoint of model",
+#     )
+#     parser.add_argument(
+#         "--seed",
+#         type=int,
+#         default=42,
+#         help="the seed (for reproducible sampling)",
+#     )
+#     parser.add_argument(
+#         "--precision",
+#         type=str,
+#         help="evaluate at this precision",
+#         choices=["full", "autocast"],
+#         default="autocast"
+#     )
+#     parser.add_argument(
+#         "--weight",
+#         type=float,
+#         default=110.,
+#         help="loss weight for attention guidance",
+#     )
+#     parser.add_argument(
+#         "--thresh",
+#         type=int,
+#         default=0.2,
+#         help="loss threshold for attention guidance",
+#     )
+#     args = parser.parse_args()
+#     print(args.prompt)
+#     # args.outdir = f"../exps/{(args.prompt[:-1]).replace(',', '').replace(' ', '_') if args.prompt[-1] == '.' else (args.prompt).replace(',', '').replace(' ', '_')}"
+#     # os.makedirs(args.outdir, exist_ok=True)
 
-    if args.laion400m:
-        print("Falling back to LAION 400M model...")
-        args.config = "configs/latent-diffusion/txt2img-1p4B-eval.yaml"
-        args.ckpt = "models/ldm/text2img-large/model.ckpt"
-        args.outdir = "outputs/txt2img-samples-laion400m"
+#     if args.laion400m:
+#         print("Falling back to LAION 400M model...")
+#         args.config = "configs/latent-diffusion/txt2img-1p4B-eval.yaml"
+#         args.ckpt = "models/ldm/text2img-large/model.ckpt"
+#         args.outdir = "outputs/txt2img-samples-laion400m"
     
-    # seed_everything(args.seed)
+#     # seed_everything(args.seed)
     
-    config = OmegaConf.load(f"{args.config}")
-    model = load_model_from_config(config, f"{args.ckpt}")
+def pipeline(prompt="a black headphone is on the left of a green phone", seed=42, sd_model="../sd-models/sd-v1-4-full-ema.ckpt", weight=110., thresh=0.2):
+    
+    config = OmegaConf.load("../configs/v1-inference.yaml")
+    model = load_model_from_config(config, sd_model)
 
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
     model = model.to(device)
 
 
-    
+    args = OmegaConf.load("../configs/sd_params.yaml")
+    args.seed = seed
+    args.weight = weight
+    args.thresh = thresh
+
     counter = 0
-    test_prompts = [args.prompt]
+    if isinstance(prompt, str):
+        test_prompts = [prompt]
+    else:
+        test_prompts = prompt
     for test_prompt in test_prompts:
         args.prompt = test_prompt
         args.outdir = f"../outputs"
@@ -885,6 +894,7 @@ if __name__ == "__main__":
 
             if j == (len(decompose_output) - 1):
                 shutil.copyfile(f"{args.outdir}/samples/{obj_name.lower()}.png", f"{args.outdir}/samples/final_{obj_name.lower()}.png")
+
 
 
 

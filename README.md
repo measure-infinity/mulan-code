@@ -53,14 +53,16 @@ pip install -e .
 
 Please modify you own GPT-4 API key in `query.py`, which is utilized for planning during the generation process. We recommend GPT-4 for the planning which is the default model in the code.
 
-To generate an image with a complex prompt, run
+To generate an image with a complex prompt, first 'cd scripts', and then run
 ```
-cd scripts
-python ./pipeline_sd.py --seed 42 --prompt "a black headphone is on the left of a green phone"
-```
-`--seed`: Random seed, `--prompt`: User prompt
+from pipeline_sd import pipeline
 
-The results will be saved in `./outputs` by default. You can easily adjust the hyper-parameters of the [backward guidance](https://github.com/silent-chen/layout-guidance), `--weight` (110. by default) and `--thresh` (0.15 by default), to see how the results will change. 
+pipeline(prompt="a black headphone is on the left of a green phone", seed=42, sd_model="../sd-models/sd-v1-4-full-ema.ckpt")
+```
+`seed`: Random seed, `prompt`: User prompt
+
+
+The results will be saved in `./outputs` by default. You can easily adjust the hyper-parameters of the [backward guidance](https://github.com/silent-chen/layout-guidance), `weight` (110. by default) and `thresh` (0.15 by default), to see how the results will change. 
 
 
 ## Bibtex
