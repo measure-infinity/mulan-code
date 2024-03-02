@@ -54,7 +54,8 @@ pip install -e .
 Please modify you own GPT-4 API key in `query.py`, which is utilized for planning during the generation process. We recommend GPT-4 for the planning which is the default model in the code.
 
 To generate an image with a complex prompt, first 'cd scripts', and then run
-```
+
+```python
 from pipeline_sd import pipeline
 
 pipeline(prompt="a black headphone is on the left of a green phone", seed=42, sd_model="../sd-models/sd-v1-4-full-ema.ckpt")
