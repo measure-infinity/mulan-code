@@ -33,8 +33,6 @@ import shutil
 import inflect
 
 
-from diffusers import StableDiffusionXLPipeline
-
 
 def chunk(it, size):
     it = iter(it)
