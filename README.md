@@ -77,7 +77,7 @@ To generate an image with a complex prompt, first `cd scripts`, and then run
 ```python
 from pipeline_sdxl import pipeline_sdxl
 
-pipeline(prompt="a black headphone is on the left of a green phone", seed=42)
+pipeline_sdxl(prompt="a black headphone is on the left of a green phone", seed=42)
 ```
 
 `seed`: Random seed, `propmt`: User prompt
