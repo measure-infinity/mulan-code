@@ -70,7 +70,7 @@ The results will be saved in `outputs` by default. You can easily adjust the hyp
 
 Please download the weights of SDXL [here](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0) and put it into the folder `sd-models`. Currently we use DDIM sampler for the generation instead of the original one. Please replace the corresponding config files in the downloaded models with the files in `sdxl_configs`.
 
-Please uninstall the library `diffusers` if you have one in the current environment. The code contains the modified `diffusers`.
+Please uninstall the library `diffusers` if you have one in the current environment. The code contains the modified library `diffusers`.
 
 To generate an image with a complex prompt, first `cd scripts`, and then run
 
