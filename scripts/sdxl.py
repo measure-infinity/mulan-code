@@ -1,3 +1,6 @@
+import sys
+sys.path.append('../')
+
 import torch
 from diffusers import StableDiffusionXLPipeline
 import os
