@@ -23,7 +23,7 @@ HKUST, UCLA, PSU, UMD
 
 ## TODO
 - [x] MuLan with SD v1.4
-- [ ] MuLan with SDXL
+- [x] MuLan with SDXL
 
 ## More visualization results
 ![More results](./assets/qualitative1.png)
@@ -40,7 +40,6 @@ pip install -r ./requirements.txt
 pip install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
 pip install -e git+https://github.com/openai/CLIP.git@main#egg=clip
 ```
-Please download the weights of Stable Diffusion v1.4 [here](https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4-full-ema.ckpt) and put it into the folder `sd-models`.
 
 Configuring LLaVA (default VLM in the code)
 ```
@@ -50,8 +49,11 @@ pip install -e .
 ```
 
 ### Demo
-
 Please modify you own GPT-4 API key in `query.py`, which is utilized for planning during the generation process. We recommend GPT-4 for the planning which is the default model in the code.
+
+**SD-v1.4**
+
+Please download the weights of Stable Diffusion v1.4 [here](https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4-full-ema.ckpt) and put it into the folder `sd-models`.
 
 To generate an image with a complex prompt, first `cd scripts`, and then run
 
@@ -62,8 +64,25 @@ pipeline(prompt="a black headphone is on the left of a green phone", seed=42, sd
 ```
 `seed`: Random seed, `prompt`: User prompt
 
+The results will be saved in `outputs` by default. You can easily adjust the hyper-parameters of the [backward guidance](https://github.com/silent-chen/layout-guidance), `weight` (110. by default) and `thresh` (0.15 by default), to see how the results will change. 
 
-The results will be saved in `./outputs` by default. You can easily adjust the hyper-parameters of the [backward guidance](https://github.com/silent-chen/layout-guidance), `weight` (110. by default) and `thresh` (0.15 by default), to see how the results will change. 
+**SDXL**
+
+Please download the weights of SDXL [here](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0) and put it into the folder `sd-models`. Currently we use DDIM sampler for the generation instead of the original one. Please replace the corresponding config files in the downloaded models with the files in `sdxl_configs`.
+
+Please uninstall the library `diffusers` if you have one in the current environment. The code contains the modified `diffusers`.
+
+To generate an image with a complex prompt, first `cd scripts`, and then run
+
+```python
+from pipeline_sdxl import pipeline_sdxl
+
+pipeline(prompt="a black headphone is on the left of a green phone", seed=42)
+```
+
+`seed`: Random seed, `propmt`: User prompt
+
+The results will be saved in `sdxl_outputs` by default.
 
 
 ## Bibtex
