@@ -466,7 +466,7 @@ def generate(opt, model, curr_prompt='a black headphone is on the left of a gree
     
 #     # seed_everything(args.seed)
     
-def pipeline(prompt="a black headphone is on the left of a green phone", seed=42, sd_model="../sd-models/sd-v1-4-full-ema.ckpt", weight=110., thresh=0.2):
+def mulan_sd(prompt="a black headphone is on the left of a green phone", seed=42, sd_model="../sd-models/sd-v1-4-full-ema.ckpt", weight=110., thresh=0.2):
     
     config = OmegaConf.load("../configs/v1-inference.yaml")
     model = load_model_from_config(config, sd_model)

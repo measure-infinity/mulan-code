@@ -484,7 +484,7 @@ def generate(opt, model, curr_prompt='a black headphone is on the left of a gree
 #         args.outdir = "outputs/txt2img-samples-laion400m"
 
 
-def pipeline_sdxl(prompt="a black headphone is on the left of a green phone", seed=42, sd_model="stabilityai/stable-diffusion-xl-base-1.0", weight=120.):
+def mulan_sdxl(prompt="a black headphone is on the left of a green phone", seed=42, sd_model="stabilityai/stable-diffusion-xl-base-1.0", weight=120.):
 
     pipe = StableDiffusionXLPipeline.from_pretrained(
     sd_model, torch_dtype=torch.float16, cache_dir='../sd_models',

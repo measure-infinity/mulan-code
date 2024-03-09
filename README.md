@@ -58,9 +58,9 @@ Please download the weights of Stable Diffusion v1.4 [here](https://huggingface.
 To generate an image with a complex prompt, first `cd scripts`, and then run
 
 ```python
-from pipeline_sd import pipeline
+from pipeline_sd import mulan_sd
 
-pipeline(prompt="a black headphone is on the left of a green phone", seed=42, sd_model="../sd-models/sd-v1-4-full-ema.ckpt")
+mulan_sd(prompt="a black headphone is on the left of a green phone", seed=42, sd_model="../sd-models/sd-v1-4-full-ema.ckpt")
 ```
 `seed`: Random seed, `prompt`: User prompt
 
@@ -75,9 +75,9 @@ Please uninstall the library `diffusers` if you have one in the current environm
 To generate an image with a complex prompt, first `cd scripts`, and then run
 
 ```python
-from pipeline_sdxl import pipeline_sdxl
+from pipeline_sdxl import mulan_sdxl
 
-pipeline_sdxl(prompt="a black headphone is on the left of a green phone", seed=42)
+mulan_sdxl(prompt="a black headphone is on the left of a green phone", seed=42)
 ```
 
 `seed`: Random seed, `propmt`: User prompt
