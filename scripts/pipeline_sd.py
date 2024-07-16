@@ -26,7 +26,6 @@ from llava.model.builder import load_pretrained_model
 from llava.mm_utils import get_model_name_from_path
 from llava.eval.run_llava import eval_model
 
-from sam import load_sam, sam_refine_box
 from clip_similarity import compute_similarity
 import shutil
 
